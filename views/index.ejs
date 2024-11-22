@@ -1,0 +1,12 @@
+<%-include("partials/header.ejs")%>
+    <div class="out">
+        <h1>My Book Notes</h1>
+        <button onclick="window.location.href='/toAdd';">Add a New Book</button>
+        <%data.forEach((d)=>{%>
+            <h2><a href="/book?id=<%=d.id%>"> <%=d.name%> by <%=d.author%></a></h2>
+            <img src="https://covers.openlibrary.org/b/isbn/<%=d.isbn%>-M.jpg"/>
+            <h3>ISBN:<%=d.isbn%></h3>
+            <h3>Summary:<%=d.description%></h3>
+        <%})%>
+    </div>
+<%-include("partials/footer.ejs")%>

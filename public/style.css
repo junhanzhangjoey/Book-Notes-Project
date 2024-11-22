@@ -1,0 +1,22 @@
+.out{
+    flex-direction: column;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons{
+    flex-direction: row;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    margin:20px;
+}
+p{
+    max-width: 600px;
+    max-height: 600px;
+    overflow-wrap: break-word;
+    overflow: auto;
+    margin:10px;
+}

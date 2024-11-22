@@ -1,0 +1,37 @@
+<%-include("partials/header.ejs")%>
+<div class="out">
+    <h1><%=book.name%> by <%=book.author%></h1>
+
+    <img src="https://covers.openlibrary.org/b/isbn/<%=book.isbn%>-L.jpg" />
+    <h2> Rating:<%=book.rating%> </h2>
+    <h2>ISBN:<%=book.isbn%></h2>
+    <h3>Summary:<%=book.description%></h3>
+    <p id="note">Note:<%=book.note%></p>
+    <form action="/update" method="post">
+        <input type="hidden" name="id" id="id" value=<%=book.id%> >
+        <textarea name="update" id="update" rows="30" cols="100" hidden="true"><%=book.note%></textarea><br>
+        <button id="submit" hidden="true">Submit</button>
+    </form>
+
+    <div class="buttons">
+        <button class="button" id="edit" onclick="handler()">Edit</button>
+
+        <form class="button" action="/delete", method="post">
+            <input type="hidden" name="id" value="<%=book.id%>">
+            <input type="submit" name="delete" id="delete" value="Delete">
+        </form>
+
+        <button class="button" onclick="window.location.href='/'">Return to Homepage</button>
+    </div>
+</div>
+<script>
+    function handler() {
+      document.getElementById("note").setAttribute("hidden", true)
+      document.getElementById("edit").setAttribute("hidden", true)
+
+      document.getElementById("update").removeAttribute("hidden")
+      document.getElementById("submit").removeAttribute("hidden")
+    }
+  </script>
+
+<%-include("partials/footer.ejs")%>
